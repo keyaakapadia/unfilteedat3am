@@ -1,0 +1,97 @@
+:root {
+  --bg: #fcfcfc;
+  --shadow: rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* background video */
+#bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+  background: #000;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.flipbook-viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.flipbook-viewport .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#book-shell {
+  position: relative;
+  display: inline-block;
+}
+
+.flipbook {
+  position: relative;
+  margin: 0 auto;
+}
+
+.flipbook .page {
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 0 18px var(--shadow);
+}
+
+.flipbook .page img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.flipbook .even,
+.flipbook .odd {
+  background: transparent;
+}
+
+.flipbook .page {
+  cursor: grab;
+}
+
+.flipbook .page:active {
+  cursor: grabbing;
+}
